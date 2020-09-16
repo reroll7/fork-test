@@ -11,7 +11,7 @@ ENV APACHE_CONF_DIR=/etc/apache2 \
     PHP_CONF_DIR=/etc/php/7.2 \
     PHP_DATA_DIR=/var/lib/php
 
-COPY ./app /mnt
+COPY ./app /mnt/app/
 COPY entrypoint.sh /sbin/entrypoint.sh
 
 RUN	\
@@ -42,7 +42,7 @@ COPY ./configs/apache2.conf ${APACHE_CONF_DIR}/apache2.conf
 COPY ./configs/app.conf ${APACHE_CONF_DIR}/sites-enabled/app.conf
 COPY ./configs/php.ini  ${PHP_CONF_DIR}/apache2/conf.d/custom.ini
 
-WORKDIR /mnt
+WORKDIR /mnt/app/
 
 EXPOSE 80 443
 
